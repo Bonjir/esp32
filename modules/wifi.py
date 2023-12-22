@@ -34,7 +34,10 @@ def connect(ssid, password, logger_on = True):
             pass
     
     ipaddr = wifi.ifconfig()[0]
-    log.info("Connection successful, IP Address: {}".format(ipaddr))
+    if logger_on == True:
+        log.info("Connection successful, IP Address: {}".format(ipaddr))
+    else:
+        log.print_only("Connection successful, IP Address: {}".format(ipaddr))
     return True, ipaddr
 
 def isconnected():
